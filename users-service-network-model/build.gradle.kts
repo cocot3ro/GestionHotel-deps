@@ -24,10 +24,6 @@ kotlin {
 }
 
 dependencies {
-    implementation(platform(libs.ktor.bom))
-    implementation(libs.ktor.server.resources)
-    implementation(libs.ktor.serialization.kotlinx.json)
-
     implementation(libs.kotlinx.serialization.json)
 }
 

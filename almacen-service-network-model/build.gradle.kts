@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-group = "com.cocot3ro.gh"
+group = "com.cocot3ro.gh.deps"
 version = "1.0.0-SNAPSHOT"
 
 java {

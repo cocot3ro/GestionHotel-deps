@@ -1,19 +1,19 @@
-package com.cocot3ro.gh.almacen.data.network.resources
+package com.cocot3ro.gh.services.users
 
 import io.ktor.resources.Resource
 
-@Resource(path = AlmacenStoreResource.PATH)
-class AlmacenStoreResource {
+@Resource(path = UserResource.PATH)
+class UserResource {
 
     companion object {
-        const val PATH: String = "/api/almacen/stores"
+        const val PATH: String = "/api/users"
     }
 
     fun getRoute(): String = PATH
 
     @Resource(path = All.PATH)
     data class All(
-        val parent: AlmacenStoreResource = AlmacenStoreResource()
+        val parent: UserResource = UserResource(),
     ) {
 
         companion object {
@@ -25,8 +25,8 @@ class AlmacenStoreResource {
 
     @Resource(path = Id.PATH)
     data class Id(
-        val parent: AlmacenStoreResource = AlmacenStoreResource(),
-        val id: Long
+        val parent: UserResource = UserResource(),
+        val id: Long,
     ) {
 
         companion object {

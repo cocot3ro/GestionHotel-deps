@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 rootProject.name = "GH-deps"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -28,8 +30,11 @@ dependencyResolutionManagement {
     }
 }
 
-include(":core-shared")
-include(":core-network-resources")
-include(":core-network-model")
 include(":almacen-service-network-resources")
 include(":almacen-service-network-model")
+
+include(":login-service-network-resources")
+include(":login-service-network-model")
+
+include(":users-service-network-resources")
+include(":users-service-network-model")
