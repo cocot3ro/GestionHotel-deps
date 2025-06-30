@@ -1,9 +1,9 @@
-package com.cocot3ro.gh.almacen.data.network.resources
+package com.cocot3ro.gh.services.users
 
 import io.ktor.resources.Resource
 
-@Resource(AlmacenImageResource.PATH)
-class AlmacenImageResource  {
+@Resource(UserImagesResources.PATH)
+class UserImagesResources {
 
     companion object {
         const val PATH: String = "/api/almacen/images"
@@ -11,21 +11,20 @@ class AlmacenImageResource  {
 
     fun getRoute(): String = PATH
 
-    @Resource(Item.PATH)
-    data class Item(
-        val parent: AlmacenImageResource = AlmacenImageResource()
+    @Resource(User.PATH)
+    data class User(
+        val parent: UserImagesResources = UserImagesResources()
     ) {
 
         companion object {
-            const val PATH: String = "item"
+            const val PATH: String = "user"
         }
 
         fun getRoute(): String = "${parent.getRoute()}/$PATH"
 
-
         @Resource(Id.PATH)
         data class Id(
-            val parent: Item = Item(),
+            val parent: User = User(),
             val id: String
         ) {
 
@@ -35,6 +34,5 @@ class AlmacenImageResource  {
 
             fun getRoute(): String = "${parent.getRoute()}/$id"
         }
-
     }
 }
