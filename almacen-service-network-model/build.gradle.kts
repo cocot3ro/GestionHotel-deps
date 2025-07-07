@@ -30,7 +30,7 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("gpr") {
-            from(components["java"])
+            from(components["kotlin"])
         }
     }
 
