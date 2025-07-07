@@ -23,6 +23,30 @@ class AlmacenItemResource {
         fun getRoute(): String = "${parent.getRoute()}/$PATH"
     }
 
+    @Resource(TakeMultipleStock.PATH)
+    data class TakeMultipleStock(
+        val parent: AlmacenItemResource = AlmacenItemResource()
+    ) {
+
+        companion object {
+            const val PATH: String = "take-multiple"
+        }
+
+        fun getRoute(): String = "${parent.getRoute()}/$PATH"
+    }
+
+    @Resource(AddMultipleStock.PATH)
+    data class AddMultipleStock(
+        val parent: AlmacenItemResource = AlmacenItemResource()
+    ) {
+
+        companion object {
+            const val PATH: String = "add-multiple"
+        }
+
+        fun getRoute(): String = "${parent.getRoute()}/$PATH"
+    }
+
     @Resource(Id.PATH)
     data class Id(
         val parent: AlmacenItemResource = AlmacenItemResource(),
