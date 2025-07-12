@@ -13,7 +13,7 @@ data class AlmacenItemModel(
     val quantity: Int,
     @SerialName("pack_size")
     val packSize: Int,
-    val minimum: Int
+    val minimum: Int?
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -38,7 +38,7 @@ data class AlmacenItemModel(
         var result = id.hashCode()
         result = 31 * result + quantity
         result = 31 * result + packSize
-        result = 31 * result + minimum
+        result = 31 * result + (minimum ?: 0)
         result = 31 * result + barcodes.contentHashCode()
         result = 31 * result + name.hashCode()
         result = 31 * result + (supplier?.hashCode() ?: 0)
