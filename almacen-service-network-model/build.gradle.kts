@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.cocot3ro.gh.deps"
-version = "1.1.1-SNAPSHOT"
+version = "1.2.0-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
