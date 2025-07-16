@@ -4,8 +4,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class AlmacenMultipleStockModel(
-    @SerialName("store_id")
-    val storeId: Long,
-    val map: Map<Long, Int>
+data class AlmacenMultipleStockModelResponse(
+    val ok: Int,
+
+    @SerialName("not_found")
+    val notFound: Int
 )
