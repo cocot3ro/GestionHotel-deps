@@ -3,8 +3,8 @@ name: Publish to GitHub Packages
 on:
   workflow_dispatch:
   pull_request:
-    types: [closed]
-    branches: [main]
+    types: [ closed ]
+    branches: [ main ]
 
 jobs:
   publish:
@@ -14,6 +14,18 @@ jobs:
     permissions:
       contents: read
       packages: write
+
+    strategy:
+      matrix:
+        module:
+          - almacen-service-network-resources
+          - almacen-service-network-model
+          - login-service-network-resources
+          - login-service-network-model
+          - users-service-network-resources
+          - users-service-network-model
+          - habs-service-network-resources
+          - habs-service-network-model
 
     steps:
       - name: Checkout code
@@ -31,5 +43,5 @@ jobs:
           echo "gpr.user=${{ github.actor }}" >> ~/.gradle/gradle.properties
           echo "gpr.key=${{ secrets.GITHUB_TOKEN }}" >> ~/.gradle/gradle.properties
 
-      - name: Publish to GitHub Packages
-        run: ./gradlew publish
+      - name: Publish module ${{ matrix.module }}
+        run: ./gradlew :${{ matrix.module }}:publish

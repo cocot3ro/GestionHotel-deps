@@ -38,3 +38,6 @@ include(":login-service-network-model")
 
 include(":users-service-network-resources")
 include(":users-service-network-model")
+
+include(":habs-service-network-resources")
+include(":habs-service-network-model")
