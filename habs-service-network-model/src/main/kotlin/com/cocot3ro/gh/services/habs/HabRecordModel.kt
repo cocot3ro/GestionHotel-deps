@@ -12,7 +12,7 @@ data class HabRecordModel(
     @SerialName("register_timestamp")
     val registerTimestamp: String,
 
-    val breakfast: Int,
+    val breakfasts: Int,
 
     val lunches: Int,
 
