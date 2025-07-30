@@ -47,4 +47,4 @@ jobs:
           echo "gpr.key=${{ secrets.GITHUB_TOKEN }}" >> ~/.gradle/gradle.properties
 
       - name: Publish module ${{ matrix.module }}
-        run: ./gradlew :${{ matrix.module }}:publishKotlinMultiplatformPublicationToGithubPackagesRepository
+        run: ./gradlew :${{ matrix.module }}:publish
