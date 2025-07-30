@@ -37,6 +37,9 @@ jobs:
           distribution: 'temurin'
           java-version: 21
 
+      - name: Set up Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app
+
       - name: Configure Gradle
         run: |
           mkdir -p ~/.gradle
