@@ -17,21 +17,20 @@ data class AlmacenItemModel(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+        if (other == null || this::class != other::class) return false
 
         other as AlmacenItemModel
 
-        return when {
-            id != other.id -> false
-            quantity != other.quantity -> false
-            packSize != other.packSize -> false
-            minimum != other.minimum -> false
-            !barcodes.contentEquals(other.barcodes) -> false
-            name != other.name -> false
-            supplier != other.supplier -> false
-            image != other.image -> false
-            else -> true
-        }
+        if (id != other.id) return false
+        if (quantity != other.quantity) return false
+        if (packSize != other.packSize) return false
+        if (minimum != other.minimum) return false
+        if (!barcodes.contentEquals(other.barcodes)) return false
+        if (name != other.name) return false
+        if (supplier != other.supplier) return false
+        if (image != other.image) return false
+
+        return true
     }
 
     override fun hashCode(): Int {
@@ -45,4 +44,5 @@ data class AlmacenItemModel(
         result = 31 * result + (image?.hashCode() ?: 0)
         return result
     }
+
 }

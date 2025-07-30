@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("java-library")
-    alias(libs.plugins.jetbrainsKotlinJvm)
+    alias(libs.plugins.jetbrainsKotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
     `maven-publish`
 
     alias(libs.plugins.kotlin.plugin.serialization)
@@ -10,25 +10,45 @@ plugins {
 }
 
 group = "com.cocot3ro.gh.deps"
-version = "1.0.0-SNAPSHOT"
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
+version = "2.0.0-SNAPSHOT"
 
 kotlin {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_11
+    jvm()
+
+    androidTarget {
+        publishLibraryVariants("release")
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(project.dependencies.platform(libs.ktor.bom))
+            implementation(libs.ktor.server.resources)
+            implementation(libs.ktor.serialization.kotlinx.json)
+
+            implementation(libs.kotlinx.serialization.json)
+        }
     }
 }
 
-dependencies {
-    implementation(platform(libs.ktor.bom))
-    implementation(libs.ktor.server.resources)
-    implementation(libs.ktor.serialization.kotlinx.json)
+android {
+    namespace = "com.cocot3ro.gh.users"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
-    implementation(libs.kotlinx.serialization.json)
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
 publishing {
@@ -39,6 +59,7 @@ publishing {
     }
 
     repositories {
+        mavenLocal()
         maven {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/cocot3ro/GestionHotel-deps")
