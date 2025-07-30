@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.cocot3ro.gh.deps"
-version = "2.0.0-SNAPSHOT"
+version = "2.0.1-SNAPSHOT"
 
 kotlin {
     jvm()
