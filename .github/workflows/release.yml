@@ -9,7 +9,7 @@ on:
 jobs:
   publish:
     if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     permissions:
       contents: read
@@ -44,4 +44,4 @@ jobs:
           echo "gpr.key=${{ secrets.GITHUB_TOKEN }}" >> ~/.gradle/gradle.properties
 
       - name: Publish module ${{ matrix.module }}
-        run: ./gradlew :${{ matrix.module }}:publish
+        run: ./gradlew :${{ matrix.module }}:publishKotlinMultiplatformPublicationToGithubPackagesRepository
