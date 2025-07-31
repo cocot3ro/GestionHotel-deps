@@ -38,7 +38,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cocot3ro.gh.habs-service-network-resources"
+    namespace = "com.cocot3ro.gh.habs.data.network.resources"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

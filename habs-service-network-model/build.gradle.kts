@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cocot3ro.gh.habs-service-network-model"
+    namespace = "com.cocot3ro.gh.habs.data.network.model"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
