@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.cocot3ro.gh.deps"
-version = "2.0.1-SNAPSHOT"
+version = "2.0.2-SNAPSHOT"
 
 kotlin {
     jvm()
@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cocot3ro.gh.users"
+    namespace = "com.cocot3ro.gh.users-service-network-model"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
