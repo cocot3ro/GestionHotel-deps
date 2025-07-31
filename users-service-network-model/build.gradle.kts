@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cocot3ro.gh.users-service-network-model"
+    namespace = "com.cocot3ro.gh.users.data.network.model"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

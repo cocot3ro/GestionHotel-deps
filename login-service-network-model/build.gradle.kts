@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cocot3ro.gh.login-service-network-model"
+    namespace = "com.cocot3ro.gh.login.data.network.model"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

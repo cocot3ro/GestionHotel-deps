@@ -38,7 +38,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cocot3ro.gh.users-service-network-resources"
+    namespace = "com.cocot3ro.gh.users.data.network.resources"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
