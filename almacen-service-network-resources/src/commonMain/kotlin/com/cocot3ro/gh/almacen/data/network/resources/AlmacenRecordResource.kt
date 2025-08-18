@@ -19,27 +19,6 @@ class AlmacenRecordResource {
         }
     }
 
-    @Resource(RecordUser.PATH)
-    data class RecordUser(
-        val parent: AlmacenRecordResource = AlmacenRecordResource()
-    ) {
-
-        companion object {
-            const val PATH: String = "user"
-        }
-
-        @Resource(Id.PATH)
-        data class Id(
-            val parent: RecordUser = RecordUser(),
-            val id: Long
-        ) {
-
-            companion object {
-                const val PATH: String = "{id}"
-            }
-        }
-    }
-
     @Resource(RecordStore.PATH)
     data class RecordStore(
         val parent: AlmacenRecordResource = AlmacenRecordResource()
