@@ -7,9 +7,6 @@ import kotlinx.serialization.Serializable
 data class AlmacenRecordModel(
     val id: Long,
 
-    @SerialName("user_id")
-    val userId: Long,
-
     @SerialName("store_id")
     val storeId: Long,
 
